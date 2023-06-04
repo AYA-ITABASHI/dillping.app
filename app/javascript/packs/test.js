@@ -24,26 +24,40 @@ document.addEventListener("DOMContentLoaded",() => {
    }, 10);
    }
 
-  function setButtonsInitial(){
-   start.diabled = false
+  function setButtonsstateInitial(){
+   start.disabled = false
    stop.disabled = true
    reset.disabled = true
   }
 
-  setButtonsInitial();
+  function setButtonsstateRunning(){
+   start.disabled = true
+   stop.disabled = false
+   reset.disabled = true
+  }
+
+  function setButtonsstateStoped(){
+   start.disabled = false
+   stop.disabled = true
+   reset.disabled = false
+  }
+
+  setButtonsstateInitial();
 
   start.addEventListener('click', () => {
-
+   setButtonsstateRunning();
    startTime = Date.now();
    countUp();
   });
 
   stop.addEventListener('click', () => {
+   setButtonsstateStoped();
    clearTimeout(timeOutid);
    elapsedTime += Date.now()- startTime
   });
 
   reset.addEventListener('click', () => {
+   setButtonsstateInitial();
    timer.textContent = "00:00:00"
    elapsedTime = 0;
   });
