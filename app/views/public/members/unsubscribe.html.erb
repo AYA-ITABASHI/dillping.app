@@ -1,0 +1,4 @@
+  <%= link_to "退会する", public_members_withdrawal_path, method: :patch, "data-confirm" => "本当に退会しますか？" %>
+  
+  <%= link_to "退会しない", public_member_path(current_member.id) %>
+  

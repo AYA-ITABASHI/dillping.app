@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+
   namespace :public do
-    get 'homes/top'
-  end
-  namespace :public do
-   resources :members, only:[:index,:show,:update]
+    get 'members/unsubscribe' => 'members#unsubscribe'
+    patch 'members/withdrawal' => 'members#withdrawal'
+   resources :members, only:[:index,:show,:update, :edit]
   end
 
   root to: 'public/homes#top'

@@ -1,0 +1,20 @@
+<h1>マイページ編集</h1>
+
+
+<%= form_with model:@member, url:public_member_path(current_member.id) do |f| %>
+ <%= f.label "会員番号" %>
+ <%= @member.id %>
+
+ <%= f.label "ペンネーム" %>
+ <%= f.text_field :pen_name %>
+
+ <%= f.label "作業環境" %>
+ <%= f.text_field :tool %>
+
+ <%= f.label "今後の目標" %>
+ <%= f.text_area :ideal %>
+
+ 
+ <%= f.submit "更新" %>
+
+<% end %>

@@ -1,4 +1,15 @@
 <h1>マイページ</h1>
+ <%=  "会員番号" %>
+ <%= @member.id %>
 
-<%= @member.id %>
-<%= @member.pen_name %>
+ <%=  "ペンネーム" %>
+ <%= @member.pen_name %>
+
+ <%= "作業環境" %>
+ <%= @member.tool %>
+
+ <%= "今後の目標" %>
+ <%= @member.ideal %>
+
+ <%= button_to "編集", edit_public_member_path(current_member.id), method: :get %>
+ <%= button_to "退会する", public_members_unsubscribe_path, method: :get %>

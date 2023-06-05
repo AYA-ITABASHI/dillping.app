@@ -1,7 +1,6 @@
 <h2>ログイン画面</h2>
 
-<%= form_with model:@member, url: member_session
-_path do |f| %>
+<%= form_with model:@member, url: member_session_path do |f| %>
   <div class="field">
     <%= f.label "Eメールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
