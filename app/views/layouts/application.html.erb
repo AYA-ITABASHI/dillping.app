@@ -20,7 +20,7 @@
     <% if member_signed_in? %>
      <%= link_to "マイページ", public_member_path(current_member.id) %>
      <%= link_to "時間記録", root_path %>
-     <%= link_to "カレンダー" %>
+     <%= link_to "予定表", public_tasks_path %>
      <%= link_to "投稿一覧"%>
      <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
     <% else %>

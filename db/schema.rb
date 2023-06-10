@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_22_094907) do
+ActiveRecord::Schema.define(version: 2023_06_10_123843) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.integer "task_id"
+    t.string "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +46,16 @@ ActiveRecord::Schema.define(version: 2023_05_22_094907) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_observers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_observers_on_reset_password_token", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "start_time"
+    t.string "finish_time"
+    t.integer "process"
   end
 
 end

@@ -1,0 +1,9 @@
+  ja:
+    enums:
+      task:
+        process:
+          rough: "ラフ"
+          draft: "下書き"
+          line_drawing: "線画"
+          coloring: "塗り"
+          complition: "仕上げ"
