@@ -7,6 +7,9 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
     # attribute :pen_name, :string, default: 'Ingooz'
 
+    has_many :tasks
+    has_many :events
+
    def set_default_pen_name
     if self.pen_name.blank?
       max_id = Member.maximum(:id) || 0

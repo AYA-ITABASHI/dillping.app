@@ -11,6 +11,13 @@ class Public::TasksController < ApplicationController
   end
 
   def edit
+   @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update
+    redirect_to public_tasks_path
   end
 
   private

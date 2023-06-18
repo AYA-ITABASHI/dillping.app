@@ -1,0 +1,13 @@
+<h1>新規予定作成</h1>
+
+<%= form_with model:@event, url: public_events_path, method: :post do |f| %>
+ <%= f.label "スケジュール名" %>
+ <%= f.text_field :title %>
+  <% @tasks.each do |tasks| %>
+   <%= tasks.process_i18n%>
+   <%= tasks.start_time %>
+   <%= tasks.finish_time %>
+   <%= link_to "削除", destroy_public_task_path, method: :delete %>
+  <% end %>
+
+<% end %>

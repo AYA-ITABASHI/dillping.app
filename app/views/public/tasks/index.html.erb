@@ -5,21 +5,17 @@
  <%= f.date_field :start_time %>
  <%= f.date_field :finish_time %>
  <%= f.submit "登録" %>
+ <%= f.hidden_field :member_id, :value => current_member.id %>
 <% end %>
 
- <% if  button_to "編集", public_tasks_path %>
-  <%= form_with model:@task, url: public_tasks_path, method: :patch do |f|%>
-   <%= f.select :process, Task.processes_i18n.invert %>
-   <%= f.date_field :start_time %>
-   <%= f.date_field :finish_time %>
-   <%= f.submit "更新" %>
-  <% end %>
 
- <% else %>
-  <% @tasks.each do |tasks| %>
+
+
+ <% @tasks.each do |tasks| %>
    <%= tasks.process_i18n%>
    <%= tasks.start_time %>
    <%= tasks.finish_time %>
-   <%= button_to "編集", public_tasks_path %>
-  <% end %>
-<% end %>
+ <% end %>
+
+
+
