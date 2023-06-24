@@ -2,13 +2,28 @@
 <head></head>
 <body>
   <h1>今日の記録<h1>
-  <div id="container">
+  <% if member_signed_in? %>
+   <div id="container">
+    <div id="timer">00:00:00</div>
+    <div id="buttons">
+      <button id="start" type="button" value="start">開始</button>
+      <button id="stop" type="button" value="stop">一時停止</button>
+      <button id="pause" type="button" value="pause">終了</button>
+      <%#= form_with model:@time, public_times_path method: :post do |f| %>
+      <%# end %>
+    </div>
+   </div>
+   <script src="/packs/log.js" charset="utf-8"></script>
+
+  <% else %>
+   <div id="container">
     <div id="timer">00:00:00</div>
     <div id="buttons">
       <button id="start" type="button" value="start">スタート</button>
       <button id="stop" type="button" value="stop">ストップ</button>
       <button id="reset" type="button" value="reset">リセット</button>
     </div>
-  </div>
-  <script src="/packs/test.js" charset="utf-8"></script>
+   </div>
+   <script src="/packs/test.js" charset="utf-8"></script>
+  <% end %>
 </body>

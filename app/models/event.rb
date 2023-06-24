@@ -1,4 +1,4 @@
 class Event < ApplicationRecord
   has_many:tasks
-  belongs_to :mem
+  belongs_to :member
 end

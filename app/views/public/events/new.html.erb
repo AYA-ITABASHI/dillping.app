@@ -7,7 +7,7 @@
    <%= tasks.process_i18n%>
    <%= tasks.start_time %>
    <%= tasks.finish_time %>
-   <%= link_to "削除", destroy_public_task_path, method: :delete %>
+   <%= link_to "削除", public_tasks_path, method: :delete %>
   <% end %>
-
+ <%= f.submit "登録" %>
 <% end %>

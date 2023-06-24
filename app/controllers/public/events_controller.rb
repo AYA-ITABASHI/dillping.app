@@ -11,7 +11,7 @@ class Public::EventsController < ApplicationController
 
   def create
     @events= Event.new(event_params)
-    @events.new
+    @events.save
     redirect_to public_events_path
   end
 

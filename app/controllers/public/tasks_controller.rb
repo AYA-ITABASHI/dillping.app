@@ -1,7 +1,7 @@
 class Public::TasksController < ApplicationController
   def index
-    @tasks = Task.all
     @task = Task.new
+    @tasks = Task.all
   end
 
   def create

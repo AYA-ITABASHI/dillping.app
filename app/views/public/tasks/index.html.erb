@@ -6,6 +6,7 @@
  <%= f.date_field :finish_time %>
  <%= f.submit "登録" %>
  <%= f.hidden_field :member_id, :value => current_member.id %>
+
 <% end %>
 
 
@@ -17,5 +18,5 @@
    <%= tasks.finish_time %>
  <% end %>
 
-
+<%= link_to "次へ", new_public_event_path %>
 
