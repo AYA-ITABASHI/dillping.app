@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded",() => {
   function setButtonsstateRunning(){
    start.disabled = true
    stop.disabled = false
-   pause.disabled = true
+   pause.disabled = false
   }
 
   function setButtonsstateStoped(){
@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded",() => {
 
   pause.addEventListener('click', () => {
    setButtonsstateInitial();
+   clearTimeout(timeOutid);
    timer.textContent = "00:00:00"
    elapsedTime = 0;
   });

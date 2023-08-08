@@ -1,9 +1,4 @@
 class Public::TasksController < ApplicationController
-  def index
-    @task = Task.new
-    @tasks = Task.all
-  end
-
   def create
     @tasks = Task.new(task_params)
     @tasks.save
@@ -16,8 +11,14 @@ class Public::TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update
+    @task.update(task_params)
     redirect_to public_tasks_path
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to public_events_path
   end
 
   private

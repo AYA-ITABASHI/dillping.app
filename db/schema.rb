@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_10_123843) do
+ActiveRecord::Schema.define(version: 2023_07_10_225920) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2023_06_10_123843) do
     t.string "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "start_time"
+    t.string "finish_time"
   end
 
   create_table "members", force: :cascade do |t|
@@ -56,6 +58,15 @@ ActiveRecord::Schema.define(version: 2023_06_10_123843) do
     t.string "start_time"
     t.string "finish_time"
     t.integer "process"
+  end
+
+  create_table "timelogs", force: :cascade do |t|
+    t.integer "measurement_time"
+    t.string "start_date"
+    t.string "finish_date"
+    t.integer "diary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

@@ -1,0 +1,7 @@
+ <h2>タスク新規作成</h2>
+  <%= f.fields_for :tasks do |task_fields| %>
+   <%= task_fields.label :process, "タスク名" %>
+   <%= f.select :process, Task.processes_i18n.invert %>
+   <%= task_fields.date_field :start_time %>
+   <%= task_fields.date_field :finish_time %>
+  <% end %>

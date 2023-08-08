@@ -12,7 +12,12 @@ Rails.application.routes.draw do
    resources :members, only:[:index,:show,:update, :edit]
   end
 
+  namespace :public do
+    resources :timelogs, only:[:new, :index, :create]
+  end
+
   root to: 'public/homes#top'
+
 
   devise_for :members,skip: [:passwords], controllers: {
   registrations: "public/registrations",
