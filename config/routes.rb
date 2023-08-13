@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    resources :events, only:[:new, :index, :create]
+    resources :events, only:[:new, :index, :create, :show]
+     resources :tasks, only:[:new, :show, :edit, :destroy, :update, :create]
   end
-  namespace :public do
-   resources :tasks, only:[:index, :edit, :destroy, :update, :create]
-  end
+
+
   namespace :public do
     get 'members/unsubscribe' => 'members#unsubscribe'
     patch 'members/withdrawal' => 'members#withdrawal'
