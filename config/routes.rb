@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    resources :events, only:[:new, :index, :create, :show]
+    resources :events, only:[:new, :index, :create, :show] do
      resources :tasks, only:[:new, :show, :edit, :destroy, :update, :create]
+    end
   end
 
 

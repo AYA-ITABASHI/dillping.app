@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_13_072952) do
+ActiveRecord::Schema.define(version: 2023_08_13_234633) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2023_08_13_072952) do
     t.string "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "start_time"
-    t.string "finish_time"
     t.integer "member_id", null: false
     t.index ["member_id"], name: "index_events_on_member_id"
   end

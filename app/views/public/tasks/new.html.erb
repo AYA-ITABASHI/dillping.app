@@ -1,23 +1,16 @@
 <h1>タスク新規作成</h1>
 
-<%= form_with model: @task, url: public_events_path(@event), method: :post do |f| %>
-  <div class="task-form">
-   <%= f.hidden_field :event_id, :value => @event.id %>
+<%= form_with model: @task, url: public_event_tasks_path(@event), method: :post do |f| %>
+ <%= f.hidden_field :event_id, :value => @event.id %>
+ <%= f.hidden_field :member_id, :value => current_member.id %>
  <%= f.label :process, "タスク名" %>
  <%= f.select :process, Task.processes_i18n.invert %>
-      </div>
-      <div class="field">
-        <%= f.label :start_time %>
-        <%= f.date_field :start_time %>
-      </div>
-      <div class="field">
-        <%= f.label :finish_time %>
-        <%= f.date_field :finish_time %>
-      </div>
-  <%= f.hidden_field :member_id, :value => current_member.id %>
-<div class="actions">
-    <%= f.submit "タスクを追加" %>
-  </div>
+ <%= f.label :start_time %>
+ <%= f.date_field :start_time %>
+ <%= f.label :finish_time %>
+ <%= f.date_field :finish_time %>
+ <%= f.submit "タスクを追加" %>
+
 <% end %>
 
 <% if @task.errors.any? %>

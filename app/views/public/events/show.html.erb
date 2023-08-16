@@ -1,4 +1,19 @@
 <h1><%= @event.title %></h1>
+<p><strong>メモ：</strong> <%= @event.memo %></p>
 
+<h2>タスク一覧</h2>
+<ul>
+  <% @event.tasks.each do |task| %>
+    <li>
+      <strong>タスク名：</strong> <%= task.process_i18n %><br>
+      <strong>開始日：</strong> <%= task.start_time %><br>
+      <strong>終了日：</strong> <%= task.finish_time %><br>
+      <!-- 他のタスク情報の表示 -->
+      <%= link_to "編集", edit_public_event_task_path(@event, task) %>
+      <%= link_to "削除", public_event_task_path(@event, task), method: :delete, data: { confirm: "削除しますか？" } %>
+    </li>
+  <% end %>
+</ul>
 
-<%= link_to "タスクを追加", new_public_task_path(event_id: @event.id), class: "button" %>
+<%= link_to "タスクを追加", new_public_event_task_path(@event), class: "button" %>
+<%= link_to "予定表へ", public_events_path %>

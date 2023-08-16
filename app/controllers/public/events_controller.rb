@@ -1,7 +1,7 @@
 class Public::EventsController < ApplicationController
 
   def index
-   @events = Event.all
+   @events = Event.includes(:tasks).all
   end
 
   def new
@@ -12,7 +12,7 @@ class Public::EventsController < ApplicationController
 
   def create
     @event= Event.new(event_params)
-
+    @task = @event.tasks.build
     if @event.save
      redirect_to public_event_path(@event)
     else
@@ -24,9 +24,6 @@ class Public::EventsController < ApplicationController
    @event = Event.find(params[:id])
 
   end
-
-
-
 
   def edit
    @event = Event.find(params[:id])
@@ -46,7 +43,7 @@ class Public::EventsController < ApplicationController
 
   private
    def event_params
-     params.require(:event).permit(:title, :member_id, :task_id)
+     params.require(:event).permit(:title, :memo, :member_id, :task_id)
    end
 
 end

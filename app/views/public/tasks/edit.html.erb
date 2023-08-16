@@ -1,0 +1,20 @@
+<h1>タスク編集</h1>
+<%= form_with model: @task, url: public_event_task_path(@event,@task), method: :patch do |f| %>
+  <div>
+    <%= f.label :process, "タスク名" %>
+    <%= f.select :process, Task.processes_i18n.invert %>
+  </div>
+  <div>
+    <%= f.label :start_time, "開始日" %>
+    <%= f.date_field :start_time %>
+  </div>
+  <div>
+    <%= f.label :finish_time, "終了日" %>
+    <%= f.date_field :finish_time %>
+  </div>
+  <!-- 他のタスク情報の編集フォーム -->
+  <div>
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+<%= link_to "戻る", public_event_path(@event) %>

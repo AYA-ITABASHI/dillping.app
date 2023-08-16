@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./test"
 import "./log"
+import "./task"
 
 Rails.start()
 Turbolinks.start()

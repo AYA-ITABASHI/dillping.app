@@ -2,3 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "simple_calendar";
+.calendar-bar {
+  //display: flex;
+   align-items: center;
+  // border: 1px solid #ccc;
+  margin-bottom: 10px;
+   background-color: #ffc0cb;
+}
+ .event-title {
+  font-weight: bold;
+  margin-right: 10px;
+ }
+
+ .color-1 {
+  background-color: #ffc0cb; /* ピンク色 */
+}
+
+.color-2 {
+  background-color: #b0e0e6; /* パウダーブルー色 */
+}
+
+.color-3 {
+  background-color: #98fb98; /* ミントクリーム色 */
+}
+
+.color-4 {
+  background-color: #ffd700; /* ゴールド色 */
+}
+
+.color-5 {
+  background-color: #dda0dd; /* プラム色 */
+}
+
+
+
+ .task-details {
+   margin-left: auto;
+   flex: 1; /* タスクの詳細部分が残りのスペースを占有 */
+   display: flex; /* タスクの詳細を横並びにするために追加 */
+   justify-content: flex-start; /* タスクの詳細を右寄せにするために追加 */
+   align-items: center; /* タスクの詳細を中央寄せにするために追加 */
+ }
+
+
+
+

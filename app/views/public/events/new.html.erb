@@ -3,6 +3,7 @@
 <%= form_with model:@event, url: public_events_path, method: :post do |f| %>
  <%= f.label "スケジュール名" %>
  <%= f.text_field :title %>
+ <%= f.text_area :memo %>
  <%= f.hidden_field :member_id, :value => current_member.id %>
  <%= f.submit "作成" %>
 <% end %>
