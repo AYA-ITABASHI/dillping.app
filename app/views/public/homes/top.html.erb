@@ -2,22 +2,7 @@
 <head></head>
 <body>
   <h1>今日の記録<h1>
-  <% if member_signed_in? %>
-   <div id="container">
-    <div id="timer">00:00:00</div>
-    <div id="buttons">
-      <button id="start" type="button" value="start">開始</button>
-      <button id="stop" type="button" value="stop">一時停止</button>
-      <button id="pause" type="button" value="pause">終了</button>
-      <%= form_with model:@timelog, url: public_timelogs_path, method: :post do |f| %>
-       <%= f.text_field :measurement_time, id: "timer" %>
-       <%= f.submit "終了", id: "pause" %>
-      <% end %>
-    </div>
-   </div>
-   <script src="/packs/log.js" charset="utf-8"></script>
 
-  <% else %>
    <div id="container">
     <div id="timer">00:00:00</div>
     <div id="buttons">
@@ -27,5 +12,5 @@
     </div>
    </div>
    <script src="/packs/test.js" charset="utf-8"></script>
-  <% end %>
+
 </body>

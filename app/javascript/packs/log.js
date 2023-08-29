@@ -1,66 +1,77 @@
+
 'use strict';
 
-document.addEventListener("DOMContentLoaded",() => {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const timer = document.getElementById("timer");
-  const start = document.getElementById("start") ;
+  const timer = document.getElementById("time");
+  const start = document.getElementById("start");
   const stop = document.getElementById("stop");
   const pause = document.getElementById("pause");
 
   let startTime;
-  let timeOutid;
+  let timeOutId;
   let elapsedTime = 0;
+  let running = false; // ストップウォッチが実行中かどうかを示すフラグ
 
-  function countUp(){
+  function countUp() {
+    const now = Date.now();
+    const deltaTime = now - startTime + elapsedTime;
 
-  const d = new Date(Date.now()-startTime + elapsedTime);
-  const h =String(d.getUTCHours()).padStart(2, "0");
-  const m =String(d.getMinutes()).padStart(2, "0");
-  const s =String(d.getSeconds()).padStart(2, "0");
-  timer.textContent = `${h}:${m}:${s}`;
+    const d = new Date(deltaTime);
+    const h = String(d.getUTCHours()).padStart(2, "0");
+    const m = String(d.getMinutes()).padStart(2, "0");
+    const s = String(d.getSeconds()).padStart(2, "0");
+    timer.textContent = `${h}:${m}:${s}`;
 
-   timeOutid=setTimeout(() => {
-   countUp();
-   }, 10);
-   }
+    timeOutId = setTimeout(countUp, 10);
+  }
 
-  function setButtonsstateInitial(){
+  function setButtonsstateInitial() {
    start.disabled = false
    stop.disabled = true
    pause.disabled = true
   }
 
-  function setButtonsstateRunning(){
+  function startFunction() {
    start.disabled = true
    stop.disabled = false
    pause.disabled = false
+
+ }
+
+  function stopAndSaveFunction() {
+   start.disabled = true
+   stop.disabled = false
+   pause.disabled = false
+
+    document.querySelector("form").submit();
+
   }
 
-  function setButtonsstateStoped(){
+  function pauseFunction() {
    start.disabled = false
    stop.disabled = true
-   pause.disabled = false
+   pause.disabled = true
   }
 
   setButtonsstateInitial();
 
   start.addEventListener('click', () => {
-   setButtonsstateRunning();
+   startFunction();
    startTime = Date.now();
    countUp();
   });
 
   stop.addEventListener('click', () => {
-   setButtonsstateStoped();
-   clearTimeout(timeOutid);
-   elapsedTime += Date.now()- startTime
+    stopAndSaveFunction();
+     elapsedTime += Date.now()- startTime
   });
 
+
   pause.addEventListener('click', () => {
-   setButtonsstateInitial();
-   clearTimeout(timeOutid);
-   timer.textContent = "00:00:00"
-   elapsedTime = 0;
+   pauseFunction();
+   clearTimeout(timeOutId);
+   elapsedTime += Date.now()- startTime
   });
 
 });

@@ -1,0 +1,14 @@
+<head></head>
+<body>
+  <h1>今日の記録<h1>
+<div id="stopwatch">
+ <button id="start" onclick="start()">START</button>
+ <%= form_with model:@timelog, url: public_timelogs_path, method: :post do |f| %>
+  <span id="time"><%= f.hidden_field :measurement_time, value: '00:00:00' %> 00:00:00 </span>
+  <button id="stop" onclick="stopAndSave()"><%= f.submit "STOP" %></button>
+ <% end %>
+  <button id="pause" onclick="pause()">PAUSE</button>
+
+</div>
+ <script src="/packs/log.js" charset="utf-8"></script>
+</body>
