@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
    stop.disabled = false
    pause.disabled = false
 
+   const timerValue = document.getElementById("time").textContent;
+   document.querySelector("input[name='timelog[measurement_time]']").value = timerValue;
+
     document.querySelector("form").submit();
 
   }
@@ -56,6 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setButtonsstateInitial();
 
+    stop.disabled = true;
+  pause.disabled = true;
+
   start.addEventListener('click', () => {
    startFunction();
    startTime = Date.now();
@@ -64,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   stop.addEventListener('click', () => {
     stopAndSaveFunction();
-     elapsedTime += Date.now()- startTime
+    clearTimeout(timeOutId);
+
   });
 
 

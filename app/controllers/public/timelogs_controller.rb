@@ -9,8 +9,8 @@ class Public::TimelogsController < ApplicationController
 
  def create
   @timelog = Timelog.new(timelog_params)
-　@timelog.save
-　redirect_to public_timelogs_path
+  @timelog.save
+  redirect_to public_timelogs_path
  end
 
  private
